@@ -3,7 +3,7 @@ $(function() {
   var userInputs =[];
   $('#addButton').click(function(event){
     userInputs.push($("input#listItem").val());
-    //console.log(userInput);
+    //$('#listItem').empty();<-----possible way to clear input field 
     event.preventDefault();
   });
 
