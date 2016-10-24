@@ -1,23 +1,32 @@
+//===============UI===============
 $(function() {
-  var userInput =[];
+  var userInputs =[];
   $('#addButton').click(function(event){
-    userInput.push($("input#listItem").val());
-    console.log(userInput);
+    userInputs.push($("input#listItem").val());
+    //console.log(userInput);
     event.preventDefault();
   });
 
 
 
   $("#submitButton").click(function(event){
-    $('#blanks').hide();
-    $('#list').show();
-    userInput.sort();
-    // userInput.toString();
-    $("#groceryList").text(userInput);
-    console.log(userInput);
+    listMaker();
+    //console.log(userInput);
 
     event.preventDefault();
 
-
   });
+
+
+  //==============BL================
+
+  var listMaker = function() {
+    $('#blanks').hide();
+    $('h2').show();
+    userInputs.sort();
+    userInputs.forEach(function(userInput){
+      $("#groceryList").append("<li>"+userInput+"</li>");
+    });
+  }
+
 });
